@@ -1,4 +1,6 @@
-/* GLOBAL */
+/* =========================
+   GLOBAL RESET
+========================= */
 
 *{
     margin:0;
@@ -17,38 +19,44 @@ body{
     line-height:1.65;
 }
 
-/* SECTION */
+
+/* =========================
+   SECTION
+========================= */
 
 .section{
     max-width:1100px;
     margin:auto;
-    padding:45px 20px;
+    padding:48px 20px;
 }
 
 .section h3{
     font-size:30px;
-    margin-bottom:25px;
+    margin-bottom:24px;
     font-weight:600;
 }
 
 .section-subtitle{
-    color:#888;
-    margin-bottom:35px;
+    color:#666666;
+    margin-bottom:30px;
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
     min-height:90vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:60px 20px;
+    padding:50px 20px;
 }
 
 .hero-content{
-    text-align:center;
     max-width:850px;
+    text-align:center;
 }
 
 .hero h1{
@@ -59,31 +67,34 @@ body{
 
 .hero h2{
     font-size:40px;
-    color:#555;
+    color:#555555;
     line-height:1.3;
-    margin-bottom:28px;
+    margin-bottom:24px;
     font-weight:400;
 }
 
 .hero-description{
     max-width:700px;
     margin:auto;
-    color:#666;
-    font-size:19px;
-    margin-bottom:22px;
+    font-size:18px;
+    color:#666666;
+    margin-bottom:24px;
 }
 
 .location{
-    color:#777;
-    margin-bottom:30px;
+    color:#888888;
+    margin-bottom:28px;
 }
 
-/* BUTTONS */
+
+/* =========================
+   BUTTONS
+========================= */
 
 .hero-buttons{
     display:flex;
     justify-content:center;
-    gap:18px;
+    gap:16px;
     flex-wrap:wrap;
 }
 
@@ -96,36 +107,42 @@ body{
 }
 
 .btn-primary{
-    background:black;
+    background:#111111;
     color:white;
 }
 
 .btn-primary:hover{
-    transform:translateY(-3px);
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
 }
 
 .btn-secondary{
-    color:black;
-    border:1px solid #dcdcdc;
+    color:#111111;
+    border:1px solid #dddddd;
 }
 
 .btn-secondary:hover{
-    background:#111;
+    background:#f5f5f5;
 }
 
-/* UNIVERSAL CARD */
+
+/* =========================
+   UNIVERSAL CARD
+========================= */
 
 .card,
 .featured-card,
 .jd-card{
-background:#fafafa;
-border:1px solid #e5e5e5;
+    background:#fafafa;
+    border:1px solid #e8e8e8;
     border-radius:18px;
-    padding:36px;
-    backdrop-filter:blur(20px);
+    padding:34px;
 }
 
-/* ACHIEVEMENTS */
+
+/* =========================
+   ACHIEVEMENTS
+========================= */
 
 .achievement-grid{
     display:grid;
@@ -134,8 +151,8 @@ border:1px solid #e5e5e5;
 }
 
 .achievement-card{
-    background:rgba(255,255,255,0.03);
-    border:1px solid #1d1d1d;
+    background:#fafafa;
+    border:1px solid #e8e8e8;
     border-radius:16px;
     padding:24px;
     text-align:center;
@@ -143,35 +160,38 @@ border:1px solid #e5e5e5;
 }
 
 .achievement-card:hover{
-    transform:translateY(-4px);
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.06);
 }
 
 .achievement-card h2{
-    font-size:30px;
+    font-size:28px;
     margin-bottom:6px;
 }
 
 .achievement-card p{
-    color:#8d8d8d;
+    color:#666666;
     font-size:14px;
 }
 
-/* FEATURED PROJECT */
+
+/* =========================
+   FEATURED PROJECT
+========================= */
 
 .featured-card h4{
     font-size:24px;
-    margin-bottom:30px;
+    margin-bottom:28px;
 }
 
 .experience-block{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:25px;
+    gap:24px;
 }
 
 .experience-block h5{
-    margin-bottom:15px;
-    font-size:17px;
+    margin-bottom:14px;
 }
 
 .experience-block ul{
@@ -179,119 +199,90 @@ border:1px solid #e5e5e5;
 }
 
 .experience-block li{
-    margin-bottom:10px;
-    color:#cfcfcf;
+    margin-bottom:8px;
+    color:#444444;
 }
 
-/* EXPERIENCE MAP */
 
-/* EXPERIENCE MAP */
+/* =========================
+   EXPERIENCE MAP
+========================= */
 
 .fake-map{
-    margin-bottom:35px;
+    margin-bottom:30px;
 }
 
 .map-top{
     display:flex;
     justify-content:center;
-    margin-bottom:40px;
+    margin-bottom:35px;
 }
 
 .map-bottom{
     display:flex;
     justify-content:space-between;
-    gap:40px;
+    gap:30px;
 }
 
 .map-point{
-
     width:320px;
-
     padding:28px;
-
-    background:rgba(0,0,0,0.03);
-
-    border:1px solid #dcdcdc;
-
+    background:#fafafa;
+    border:1px solid #e8e8e8;
     border-radius:18px;
-
-    cursor:pointer;
-
-    transition:0.25s ease;
-
     text-align:center;
+    cursor:pointer;
+    transition:0.25s ease;
 }
 
 .map-point:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.06);
 }
 
 .map-point span{
-
     font-size:22px;
-
 }
 
 .map-point h4{
-
     margin:12px 0;
-
 }
 
 .map-point p{
-
-    color:#666;
-
-}
-
-.map-node:hover{
-    transform:translateY(-4px);
-    background:#0d0d0d;
-}
-
-.map-node span{
-    font-size:22px;
-}
-
-.map-node h4{
-    margin:12px 0;
-}
-
-.map-node p{
-    color:#888;
+    color:#666666;
 }
 
 .experience-detail{
-    padding:28px;
-    background:#0b0b0b;
-    border:1px solid #1d1d1d;
+    padding:30px;
+    background:#f8f8f8;
+    border:1px solid #e5e5e5;
     border-radius:16px;
-    color:#d0d0d0;
+    color:#333333;
 }
 
-/* JD MATCHER */
+
+/* =========================
+   JD MATCHER
+========================= */
 
 textarea{
     width:100%;
-    min-height:200px;
+    min-height:180px;
     background:#f8f8f8;
-    color:black;
+    color:#111111;
     border:1px solid #e5e5e5;
     padding:20px;
     border-radius:12px;
     resize:vertical;
-    margin-bottom:20px;
+    margin-bottom:18px;
+    font-family:inherit;
 }
 
 button{
     border:none;
-    background:white;
-    color:black;
-    padding:13px 24px;
+    background:#111111;
+    color:white;
+    padding:12px 24px;
     border-radius:12px;
     cursor:pointer;
     transition:0.25s ease;
@@ -302,11 +293,14 @@ button:hover{
 }
 
 #resultBox{
-    margin-top:25px;
+    margin-top:24px;
     line-height:1.9;
 }
 
-/* CURRENTLY BUILDING */
+
+/* =========================
+   BUILDING
+========================= */
 
 .building-grid{
     display:grid;
@@ -315,8 +309,8 @@ button:hover{
 }
 
 .build-card{
-    background:rgba(255,255,255,0.03);
-    border:1px solid #1d1d1d;
+    background:#fafafa;
+    border:1px solid #e8e8e8;
     padding:28px;
     border-radius:16px;
     transition:0.25s ease;
@@ -324,13 +318,17 @@ button:hover{
 
 .build-card:hover{
     transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.06);
 }
 
 .build-card h4{
     margin-bottom:14px;
 }
 
-/* DRIVES */
+
+/* =========================
+   DRIVES
+========================= */
 
 .drive-grid{
     display:grid;
@@ -339,8 +337,8 @@ button:hover{
 }
 
 .drive-card{
-    background:rgba(255,255,255,0.03);
-    border:1px solid #1d1d1d;
+    background:#fafafa;
+    border:1px solid #e8e8e8;
     padding:28px;
     border-radius:16px;
 }
@@ -349,7 +347,10 @@ button:hover{
     margin-bottom:14px;
 }
 
-/* CONNECT */
+
+/* =========================
+   CONNECT
+========================= */
 
 .connect-links{
     display:flex;
@@ -358,67 +359,77 @@ button:hover{
 }
 
 .connect-links a{
-    color:white;
     text-decoration:none;
-    font-size:17px;
-    transition:0.25s ease;
+    color:#111111;
+    transition:0.2s ease;
 }
 
 .connect-links a:hover{
-    color:#888;
+    color:#666666;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     text-align:center;
-    padding:50px;
-    color:#555;
+    padding:40px;
+    color:#999999;
     font-size:14px;
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:900px){
 
-.achievement-grid{
-    grid-template-columns:repeat(2,1fr);
-}
+    .hero h1{
+        font-size:42px;
+    }
 
-.experience-block{
-    grid-template-columns:1fr;
-}
+    .hero h2{
+        font-size:28px;
+    }
 
-.building-grid{
-    grid-template-columns:1fr;
-}
+    .hero-description{
+        font-size:16px;
+    }
 
-.drive-grid{
-    grid-template-columns:1fr;
-}
+    .achievement-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-.hero h1{
-    font-size:42px;
-}
+    .experience-block{
+        grid-template-columns:1fr;
+    }
 
-.hero h2{
-    font-size:28px;
-}
+    .building-grid{
+        grid-template-columns:1fr;
+    }
 
-.hero-description{
-    font-size:16px;
-}
+    .drive-grid{
+        grid-template-columns:1fr;
+    }
+
+    .map-bottom{
+        flex-direction:column;
+        align-items:center;
+    }
 
 }
 
 @media(max-width:600px){
 
-.achievement-grid{
-    grid-template-columns:1fr;
-}
+    .achievement-grid{
+        grid-template-columns:1fr;
+    }
 
-.section{
-    padding:55px 20px;
-}
+    .section{
+        padding:40px 20px;
+    }
 
 }
