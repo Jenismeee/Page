@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jennifer Fu | Portfolio</title>
+    <title>Jennifer Fu | Signal Project</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -23,8 +27,9 @@
         </h2>
 
         <p class="hero-description">
-            Early-career operator building across business operations,
-            product execution, data-driven growth, and global systems.
+            I believe careers are built by continuously learning
+            how systems work, solving complex problems,
+            and expanding into unfamiliar domains.
         </p>
 
         <div class="location">
@@ -34,7 +39,7 @@
         <div class="hero-buttons">
 
             <a href="JENNIFER FU Resume.pdf" download class="btn-primary">
-                Download Resume
+                Resume
             </a>
 
             <a href="https://www.linkedin.com/in/jennifer-fu-156066362/"
@@ -56,26 +61,33 @@
 </section>
 
 
-<!-- WHAT I DO -->
+<!-- HOW I THINK -->
 
 <section class="section">
 
-    <h3>What I Do</h3>
+    <h3>How I Think</h3>
 
     <div class="card">
 
         <p>
-            I work across business operations, product execution,
-            cross-border systems, data-driven growth,
-            and operational problem solving.
+            I enjoy understanding how systems work.
         </p>
 
         <br>
 
         <p>
-            My experience spans global logistics operations,
-            fast-growing internet companies, e-commerce ecosystems,
-            and technology-enabled workflow execution.
+            Whether it is cross-border logistics execution,
+            merchant growth, e-commerce ecosystems,
+            or product workflows, I naturally gravitate
+            toward understanding complexity and finding ways
+            to make systems operate more efficiently.
+        </p>
+
+        <br>
+
+        <p>
+            I learn aggressively, adapt quickly,
+            and continuously expand into new business domains.
         </p>
 
     </div>
@@ -108,7 +120,7 @@
 
         <div class="achievement-card">
             <h2>3300+</h2>
-            <p>Users Managed</p>
+            <p>Community Users Managed</p>
         </div>
 
         <div class="achievement-card">
@@ -121,57 +133,53 @@
 </section>
 
 
-<!-- FEATURED EXPERIENCE -->
+<!-- FEATURED PROJECT -->
 
 <section class="section">
 
-    <h3>Featured Experience</h3>
+    <h3>Featured Project</h3>
 
     <div class="featured-card">
 
-        <h4>Kuaishou Technology</h4>
-
-        <p class="role">
-            E-Commerce Operations Intern | Oct 2023 – Jan 2024
-        </p>
+        <h4>Kuaishou Technology — Double 11 Campaign</h4>
 
         <div class="experience-block">
 
             <div>
 
-                <h5>What I Owned</h5>
+                <h5>Problem</h5>
 
                 <ul>
-                    <li>S+ Double 11 Campaign Coordination</li>
-                    <li>Merchant Acquisition & Reactivation</li>
-                    <li>Livestream Business Operations</li>
-                    <li>Category Growth Strategy</li>
+                    <li>Campaign execution bottlenecks</li>
+                    <li>Merchant activation inefficiency</li>
+                    <li>Livestream performance gaps</li>
+                    <li>Category growth optimization needed</li>
                 </ul>
 
             </div>
 
             <div>
 
-                <h5>Key Metrics</h5>
+                <h5>Action</h5>
 
                 <ul>
-                    <li>107.2% Target Achievement</li>
-                    <li>29M+ RMB Daily GMV</li>
-                    <li>45% Merchant Growth</li>
-                    <li>109% MoM Growth Improvement</li>
+                    <li>Merchant acquisition campaigns</li>
+                    <li>Merchant reactivation operations</li>
+                    <li>Livestream KPI monitoring</li>
+                    <li>Category strategy optimization</li>
                 </ul>
 
             </div>
 
             <div>
 
-                <h5>Business Impact</h5>
+                <h5>Results</h5>
 
                 <ul>
-                    <li>Optimized campaign execution</li>
-                    <li>Improved merchant ecosystem expansion</li>
-                    <li>Supported platform growth strategy</li>
-                    <li>Improved category GMV performance</li>
+                    <li>107.2% target achievement</li>
+                    <li>29M+ RMB daily GMV</li>
+                    <li>45% merchant growth</li>
+                    <li>109% MoM improvement</li>
                 </ul>
 
             </div>
@@ -182,38 +190,41 @@
 
 </section>
 
-
-<!-- ADDITIONAL EXPERIENCE -->
+    <!-- EXPERIENCE MAP -->
 
 <section class="section">
 
-    <h3>Additional Experience</h3>
+    <h3>Experience Map</h3>
 
-    <div class="experience-grid">
+    <p class="section-subtitle">
+        Professional exposure across different business ecosystems in Asia.
+    </p>
 
-        <div class="mini-card">
-            <h4>COMONE INT'L LOGISTICS</h4>
-            <p>Operations Executive</p>
-            <span>Singapore | 2025 – Present</span>
+    <div class="map-container">
+
+        <div class="map-node singapore" onclick="showExperience('singapore')">
+            <span>●</span>
+            <h4>Singapore 🇸🇬</h4>
+            <p>COMONE Logistics</p>
         </div>
 
-        <div class="mini-card">
-            <h4>Mafengwo</h4>
-            <p>Growth Marketing Intern</p>
-            <span>Beijing | 2023</span>
+        <div class="map-node beijing" onclick="showExperience('beijing')">
+            <span>●</span>
+            <h4>Beijing 🇨🇳</h4>
+            <p>Kuaishou + Mafengwo</p>
         </div>
 
-        <div class="mini-card">
-            <h4>Digital Hainan</h4>
-            <p>Product Operations Intern</p>
-            <span>Haikou | 2023</span>
+        <div class="map-node haikou" onclick="showExperience('haikou')">
+            <span>●</span>
+            <h4>Haikou 🇨🇳</h4>
+            <p>Digital Hainan + UniFuture</p>
         </div>
 
-        <div class="mini-card">
-            <h4>UniFuture</h4>
-            <p>Creator Partnership Intern</p>
-            <span>Haikou | 2023</span>
-        </div>
+    </div>
+
+    <div id="experienceDetail" class="experience-detail">
+
+        <p>Click a location to explore experience.</p>
 
     </div>
 
@@ -254,25 +265,134 @@
 </section>
 
 
-<!-- CURRENTLY EXPLORING -->
+<!-- CURRENTLY BUILDING -->
 
 <section class="section">
 
-    <h3>Currently Exploring</h3>
+    <h3>Currently Building</h3>
 
-    <div class="explore-grid">
+    <div class="building-grid">
 
-        <div class="tag">SQL</div>
+        <div class="build-card">
 
-        <div class="tag">AI Workflow Automation</div>
+            <h4>SQL</h4>
 
-        <div class="tag">Product Systems</div>
+            <p>
+                Learning relational databases
+                for business analytics workflows.
+            </p>
 
-        <div class="tag">Business Analytics</div>
+        </div>
 
-        <div class="tag">Global Operations</div>
+        <div class="build-card">
 
-        <div class="tag">Systems Thinking</div>
+            <h4>AI Workflow Systems</h4>
+
+            <p>
+                Building AI-assisted workflow systems
+                to improve operational productivity.
+            </p>
+
+        </div>
+
+        <div class="build-card">
+
+            <h4>Business Analytics</h4>
+
+            <p>
+                Strengthening KPI analysis capability
+                and operational data interpretation.
+            </p>
+
+        </div>
+
+        <div class="build-card">
+
+            <h4>Future Direction</h4>
+
+            <p>
+                Transitioning toward strategy,
+                business operations,
+                and product-adjacent roles.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHAT DRIVES ME -->
+
+<section class="section">
+
+    <h3>What Drives Me</h3>
+
+    <div class="drive-grid">
+
+        <div class="drive-card">
+            <h4>Technology</h4>
+            <p>
+                Curious about how AI is reshaping
+                society and future work.
+            </p>
+        </div>
+
+        <div class="drive-card">
+            <h4>Systems Thinking</h4>
+            <p>
+                I enjoy understanding complexity
+                and improving operational efficiency.
+            </p>
+        </div>
+
+        <div class="drive-card">
+            <h4>Global Perspective</h4>
+            <p>
+                Interested in working across
+                industries, countries, and cultures.
+            </p>
+        </div>
+
+        <div class="drive-card">
+            <h4>Continuous Growth</h4>
+            <p>
+                I actively seek environments
+                that accelerate learning.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHY I BUILT THIS -->
+
+<section class="section">
+
+    <h3>Why I Built This Website</h3>
+
+    <div class="card">
+
+        <p>
+            Most resumes describe what someone has done.
+        </p>
+
+        <br>
+
+        <p>
+            I wanted to build something that better reflects
+            how I think, how I learn,
+            and the kind of professional I am becoming.
+        </p>
+
+        <br>
+
+        <p>
+            This website is part of that process.
+        </p>
 
     </div>
 
@@ -313,7 +433,6 @@
     </p>
 
 </footer>
-
 
 <script src="script.js"></script>
 
