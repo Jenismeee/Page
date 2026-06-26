@@ -1,341 +1,310 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jennifer Fu · Operations Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --green-lightest: #f4fbf4;
-      --green-light: #eef7ee;
-      --green-mid: #c0ddc0;
-      --green-border: #b5d4b5;
-      --green-muted: #8ab89a;
-      --green-main: #4a7c5a;
-      --green-dark: #2e5e3e;
-      --text-primary: #1a2e1f;
-      --text-secondary: #4a5c4e;
-      --text-muted: #7a8c7e;
-      --bg: #f9fdf9;
-      --white: #ffffff;
-      --shadow-sm: 0 2px 8px rgba(74, 124, 90, 0.05);
-      --shadow-md: 0 8px 24px rgba(74, 124, 90, 0.08);
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text-primary);
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      padding: 5rem 0 3.5rem;
-      border-bottom: 0.5px solid var(--green-border);
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-    }
-    .hero-left { flex: 1; min-width: 0; }
-    .hero-photo {
-      width: 180px;
-      height: 240px;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 16px;
-      flex-shrink: 0;
-      border: 2px solid var(--green-border);
-      box-shadow: var(--shadow-md);
-    }
-    .hero-greeting {
-      font-family: 'Lora', serif;
-      font-size: 42px;
-      font-weight: 400;
-      color: var(--text-primary);
-      line-height: 1.2;
-      margin-bottom: 0.2rem;
-    }
-    .hero-name-sub {
-      font-family: 'Lora', serif;
-      font-style: italic;
-      font-size: 18px;
-      color: var(--green-main);
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-    }
-    .hero-slogan {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--green-dark);
-      margin-bottom: 0.3rem;
-      letter-spacing: 0.05em;
-    }
-    .hero-slogan-en {
-      font-size: 14px;
-      color: var(--green-muted);
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-    .hero-tagline {
-      font-size: 14px;
-      line-height: 1.8;
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
-    }
-    .hero-contacts { display: flex; flex-wrap: wrap; gap: 10px; }
-    
-    .contact-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      color: var(--green-dark);
-      background: var(--white);
-      border: 1px solid var(--green-border);
-      border-radius: 20px;
-      padding: 6px 16px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      box-shadow: var(--shadow-sm);
-      cursor: pointer;
-    }
-    .contact-pill:hover {
-      background: var(--green-light);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
-    }
-    .contact-pill.primary-btn {
-      background: var(--green-main);
-      color: var(--white);
-      border-color: var(--green-main);
-    }
-    .contact-pill.primary-btn:hover {
-      background: var(--green-dark);
-    }
-
-    /* CORE SECTIONS */
-    .section { padding: 3.5rem 0; border-bottom: 0.5px solid var(--green-border); }
-    .section:last-of-type { border-bottom: none; }
-    
-    .section-label { display: flex; align-items: center; gap: 10px; margin-bottom: 2rem; }
-    .section-label-text { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-main); font-weight: 600; }
-    .section-label-zh { font-size: 12px; color: var(--green-muted); }
-    .section-label-line { flex: 1; height: 0.5px; background: var(--green-border); }
-
-    /* WORKSPACE GRID */
-    .workspace-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
-
-    /* INNOVATION: VISUAL LOGIC PANEL (左侧：创新业务抽象能力展示) */
-    .logic-panel {
-      background: var(--white);
-      border: 1px solid var(--green-border);
-      border-radius: 16px;
-      padding: 1.75rem;
-      box-shadow: var(--shadow-sm);
-    }
-    .logic-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--green-dark);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .logic-desc {
-      font-size: 13px;
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-    }
-    .logic-tree {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .logic-node {
-      background: var(--green-lightest);
-      border-left: 3px solid var(--green-main);
-      padding: 10px 12px;
-      border-radius: 0 8px 8px 0;
-    }
-    .logic-node h4 {
-      font-size: 13px;
-      color: var(--green-dark);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .logic-node p {
-      font-size: 12px;
-      color: var(--text-secondary);
-      margin-top: 2px;
-    }
-
-    /* INTERACTIVE PANEL (右侧：交互匹配器面板) */
-    .interactive-panel {
-      background: var(--white);
-      border: 1px solid var(--green-border);
-      border-radius: 16px;
-      padding: 1.75rem;
-      box-shadow: var(--shadow-md);
-    }
-    .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 0.5px dashed var(--green-border);
-    }
-    .panel-dot-group { display: flex; gap: 6px; align-items: center;}
-    .panel-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .panel-title { font-size: 12px; font-family: monospace; color: var(--text-muted); }
-    
-    .input-label { display: block; font-size: 12px; font-weight: 500; color: var(--text-secondary); margin-bottom: 0.5rem; }
-    .jd-textarea {
-      width: 100%;
-      height: 140px;
-      padding: 12px;
-      border: 1px solid var(--green-border);
-      border-radius: 8px;
-      background: var(--green-lightest);
-      color: var(--text-primary);
-      font-family: inherit;
-      font-size: 13.5px;
-      resize: none;
-      outline: none;
-      transition: all 0.2s ease;
-    }
-    .jd-textarea:focus {
-      border-color: var(--green-main);
-      background: var(--white);
-      box-shadow: var(--shadow-sm);
-    }
-    
-    .match-btn {
-      width: 100%;
-      background: var(--green-main);
-      color: var(--white);
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 1rem;
-      transition: background 0.2s;
-    }
-    .match-btn:hover { background: var(--green-dark); }
-
-    /* RESULTS AREA */
-    #match-loading { text-align: center; padding: 1.5rem 0; color: var(--green-main); font-size: 13px; }
-    .spinner {
-      display: inline-block; width: 18px; height: 18px;
-      border: 2px solid var(--green-mid); border-top-color: var(--green-main); 
-      border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    #match-result { margin-top: 1.5rem; animation: fadeIn 0.4s ease forwards; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-
-    .result-score-box {
-      background: var(--green-light);
-      border: 1px solid var(--green-border);
-      border-radius: 10px;
-      padding: 1rem;
-      text-align: center;
-      margin-bottom: 1.25rem;
-    }
-    .result-score-num { font-size: 32px; font-weight: 700; color: var(--green-dark); font-family: 'Lora', serif; }
-    
-    .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.25rem; }
-    .res-card { padding: 10px 12px; border-radius: 8px; background: var(--bg); border: 0.5px solid var(--green-border); }
-    .res-card h4 { font-size: 12px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px; display: flex; align-items: center; gap: 4px;}
-    
-    .str-ul, .gap-ul { list-style: none; font-size: 13px; color: var(--text-secondary); }
-    .str-li, .gap-li { margin-bottom: 4px; position: relative; padding-left: 12px; }
-    .str-li::before { content: '•'; position: absolute; left: 0; color: var(--green-main); font-weight: bold; }
-    .gap-li::before { content: '•'; position: absolute; left: 0; color: var(--green-muted); }
-
-    .dim-title { font-size: 12px; font-weight: 500; color: var(--text-secondary); margin-bottom: 6px; }
-    .dim-container { display: flex; flex-direction: column; gap: 8px; }
-    .dim-bar-fill { height: 100%; background: var(--green-main); border-radius: 2px; transition: width 0.6s cubic-bezier(0.1, 1, 0.1, 1); }
-
-    /* WORKFLOW & COMPETENCY */
-    .workflow-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; }
-    .flow-card { background: var(--white); border: 0.5px solid var(--green-border); border-radius: 12px; padding: 1.25rem; box-shadow: var(--shadow-sm); }
-    .flow-step { position: relative; padding-left: 24px; margin-bottom: 1.25rem; }
-    .flow-step:last-child { margin-bottom: 0; }
-    .flow-step::before {
-      content: ''; position: absolute; left: 4px; top: 6px;
-      width: 6px; height: 6px; border-radius: 50%; background: var(--green-main);
-    }
-    .flow-step::after {
-      content: ''; position: absolute; left: 6px; top: 16px; bottom: -18px; width: 0.5px; background: var(--green-border);
-    }
-    .flow-step:last-child::after { display: none; }
-    .flow-step h4 { font-size: 14px; font-weight: 600; color: var(--text-primary); }
-    .flow-step p { font-size: 12.5px; color: var(--text-secondary); margin-top: 2px; }
-
-    .chips-container { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tool-chip { font-size: 12.5px; color: var(--green-dark); background: var(--white); border: 0.5px solid var(--green-border); border-radius: 6px; padding: 5px 12px; }
-    .lang-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
-    .lang-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-muted); }
-
-    footer { text-align: center; padding: 3rem 0; font-size: 12px; color: var(--green-muted); letter-spacing: 0.06em; border-top: 0.5px solid var(--green-border); margin-top: 2rem; }
-
-    @media (max-width: 768px) {
-      .hero { flex-direction: column-reverse; text-align: center; gap: 1.5rem; padding-top: 3rem; }
-      .hero-photo { width: 140px; height: 180px; }
-      .hero-contacts { justify-content: center; }
-      .workspace-grid, .workflow-grid { grid-template-columns: 1fr; gap: 2rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jennifer Fu | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="container">
 
-    <section class="hero">
-      <div class="hero-left">
-        <h1 class="hero-greeting">Hi, I'm Jia Qian <span class="hero-greeting-wave">👋</span></h1>
-        <p class="hero-name-sub">符嘉倩 · Operations & Automation Thinker · Singapore</p>
-        <p class="hero-slogan">发现问题，了解问题，解决问题。</p>
-        <p class="hero-slogan-en">Spot it. Understand it. Solve it.</p>
-        <p class="hero-tagline">
-          与其在多页的 PDF 里重复阅读我的过往履历，我更希望通过一个具体的工具，向您直观交付我的**业务抽象能力与工程落地视野**。下方是我用原生 JS 编写的岗位匹配器，欢迎您现场测试。
+<body>
+
+<!-- HERO -->
+
+<header class="hero">
+
+```
+<div class="hero-content">
+
+    <h1>Jennifer Fu</h1>
+
+    <h2>
+        Business Operations | AI Workflow | Global Systems
+    </h2>
+
+    <p>
+        I build scalable operational systems across logistics,
+        business operations, growth strategy, and intelligent workflow automation.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#experience">Experience</a>
+
+        <a href="#matcher">AI Match Engine</a>
+
+        <button onclick="copyEmail()">
+            Contact Me
+        </button>
+
+    </div>
+
+    <div class="location">
+        Singapore Based 🇸🇬 <br>
+        Open to global opportunities
+    </div>
+
+</div>
+```
+
+</header>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+```
+<h2>About Me</h2>
+
+<div class="about-card">
+
+    <p>
+        I specialize in transforming operational complexity
+        into scalable execution systems.
+    </p>
+
+    <p>
+        Over the last several years, I have built experience
+        across cross-border logistics, business operations,
+        growth strategy, product operations, and data-driven
+        performance management.
+    </p>
+
+    <p>
+        My work sits at the intersection of operations execution,
+        analytical decision making, and AI-powered workflow design.
+    </p>
+
+</div>
+```
+
+</section>
+
+<!-- CORE COMPETENCIES -->
+
+<section id="skills">
+
+```
+<h2>Core Competencies</h2>
+
+<div class="skills-grid">
+
+    <div class="skill-card">Supply Chain Operations</div>
+
+    <div class="skill-card">Cross Border Logistics</div>
+
+    <div class="skill-card">Business Analytics</div>
+
+    <div class="skill-card">KPI Monitoring</div>
+
+    <div class="skill-card">Growth Operations</div>
+
+    <div class="skill-card">Process Optimization</div>
+
+    <div class="skill-card">AI Workflow Integration</div>
+
+    <div class="skill-card">Product Operations</div>
+
+    <div class="skill-card">Stakeholder Management</div>
+
+    <div class="skill-card">Data Analysis</div>
+
+</div>
+```
+
+</section>
+
+<!-- CAREER MAP -->
+
+<section id="career-map">
+
+```
+<h2>Career Evolution</h2>
+
+<div class="map-card">
+
+    <div class="map-point">
+
+        <h3>📍 Haikou, China</h3>
+
+        <p>
+            Product Operations Intern <br>
+            Creator Partnership Operations Intern
         </p>
-        <div class="hero-contacts">
-          <a class="contact-pill primary-btn" href="#workspace" id="matcher-btn">
-            <i class="ti ti-cpu" aria-hidden="true"></i> 现场测试匹配器
-          </a>
-          <button class="contact-pill" id="email-btn" data-email="jennyfo1010@gmail.com">
-            <i class="ti ti-copy" aria-hidden="true"></i> 复制邮件地址
-          </button>
-          <a class="contact-pill" href="https://linkedin.com/in/jennifer-fu-156066362" target="_blank" rel="noopener">
-            <i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn
-          </a>
-        </div>
-      </div>
-      <img class="hero-photo" src="data:image/jpeg;base64,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AtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRRRQAtFFFAC0UUUALRR
+
+    </div>
+
+    <div class="map-point">
+
+        <h3>📍 Beijing, China</h3>
+
+        <p>
+            Growth Marketing Intern <br>
+            E-commerce Operations Intern
+        </p>
+
+    </div>
+
+    <div class="map-point">
+
+        <h3>📍 Singapore</h3>
+
+        <p>
+            Operations Executive <br>
+            Cross Border Logistics
+        </p>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+```
+<h2>Professional Experience</h2>
+
+<div class="experience-card">
+
+    <h3>
+        Operations Executive |
+        COMONE INT'L LOGISTICS PTE. LTD.
+    </h3>
+
+    <span>
+        Singapore | Jan 2025 - Present
+    </span>
+
+    <p>
+        Manage end-to-end cross-border logistics operations
+        supporting import clearance, shipment execution,
+        customer fulfillment, and exception resolution.
+    </p>
+
+    <p>
+        Coordinate daily communication across customers,
+        warehouse operations, transport providers,
+        and customs stakeholders while maintaining
+        service continuity.
+    </p>
+
+    <p>
+        Analyze operational KPIs including delivery performance,
+        shipment volume, and customer satisfaction metrics,
+        identifying bottlenecks and improving workflows.
+    </p>
+
+</div>
+
+
+<div class="experience-card">
+
+    <h3>
+        E-commerce Operations Intern |
+        Kuaishou Technology
+    </h3>
+
+    <span>
+        Beijing | Oct 2023 - Jan 2024
+    </span>
+
+    <p>
+        Served as PM for S+ 11.11 campaign taskforce,
+        managing livestream metrics, merchant acquisition,
+        GMV growth tracking, and execution optimization.
+    </p>
+
+    <p>
+        Contributed to campaign execution reaching
+        107.2% target completion and improved performance
+        by 20.2 percentage points.
+    </p>
+
+</div>
+```
+
+</section>
+
+<!-- AI MATCH ENGINE -->
+
+<section id="matcher">
+
+```
+<h2>AI Career Match Engine</h2>
+
+<textarea
+    id="jdInput"
+    placeholder="Paste Job Description Here..."
+    rows="12"
+></textarea>
+
+<button onclick="analyzeJD()">
+    Analyze Match
+</button>
+
+<div id="result"></div>
+```
+
+</section>
+
+<!-- AI WORKFLOW -->
+
+<section id="ai">
+
+```
+<h2>How I Use AI Professionally</h2>
+
+<div class="ai-card">
+
+    <p>
+        • Prompt engineering for workflow acceleration
+    </p>
+
+    <p>
+        • AI assisted Excel analysis and reporting
+    </p>
+
+    <p>
+        • AI powered communication drafting
+    </p>
+
+    <p>
+        • Process optimization using GPT workflows
+    </p>
+
+    <p>
+        • AI assisted operational decision support
+    </p>
+
+</div>
+```
+
+</section>
+
+<!-- CONTACT -->
+
+<footer>
+
+```
+<h2>Contact</h2>
+
+<button onclick="copyEmail()">
+    Copy My Email
+</button>
+
+<p>
+    Jennyfo1010@gmail.com
+</p>
+```
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
