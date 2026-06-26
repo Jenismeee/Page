@@ -1,177 +1,115 @@
-/* ===========================
-COPY EMAIL FUNCTION
-=========================== */
-
-function copyEmail() {
-
-```
-navigator.clipboard.writeText("Jennyfo1010@gmail.com");
-
-alert("Email copied successfully: Jennyfo1010@gmail.com");
-```
-
-}
-
-/* ===========================
-AI JD MATCHER
-=========================== */
+// AI JD MATCHER
 
 function analyzeJD() {
 
-```
-let jd = document.getElementById("jdInput").value.toLowerCase();
+    const jd = document.getElementById("jdInput").value.toLowerCase();
 
-if (jd.trim() === "") {
-    alert("Please paste a job description first.");
-    return;
-}
-
-let matchedSkills = [];
-let missingSkills = [];
-
-let score = 45;
-
-
-/* YOUR SKILLS DATABASE */
-
-const skillDatabase = {
-
-    "operations": "Operations Management",
-
-    "logistics": "Cross Border Logistics",
-
-    "supply chain": "Supply Chain Operations",
-
-    "data analysis": "Data Analysis",
-
-    "excel": "Excel Analysis",
-
-    "kpi": "KPI Monitoring",
-
-    "stakeholder": "Stakeholder Management",
-
-    "cross functional": "Cross Functional Collaboration",
-
-    "ecommerce": "E-commerce Operations",
-
-    "customer": "Customer Operations",
-
-    "project management": "Project Management",
-
-    "product": "Product Operations",
-
-    "growth": "Growth Operations",
-
-    "ai": "AI Workflow Integration"
-
-};
+    const mySkills = [
+        "business operations",
+        "operations",
+        "cross-functional",
+        "stakeholder management",
+        "analytics",
+        "kpi",
+        "product operations",
+        "growth",
+        "e-commerce",
+        "merchant",
+        "campaign",
+        "process improvement",
+        "customer operations",
+        "logistics",
+        "supply chain",
+        "excel",
+        "google sheets",
+        "ai"
+    ];
 
 
-/* SKILL CHECK */
+    const premiumSkills = [
+        "sql",
+        "tableau",
+        "python",
+        "power bi",
+        "data analysis",
+        "strategy",
+        "product management",
+        "business analyst",
+        "automation"
+    ];
 
-for (let keyword in skillDatabase) {
 
-    if (jd.includes(keyword)) {
+    let matched = [];
+    let missing = [];
 
-        matchedSkills.push(skillDatabase[keyword]);
 
-        score += 4;
+    mySkills.forEach(skill => {
+        if (jd.includes(skill)) {
+            matched.push(skill);
+        }
+    });
 
+
+    premiumSkills.forEach(skill => {
+        if (jd.includes(skill) && !mySkills.includes(skill)) {
+            missing.push(skill);
+        }
+    });
+
+
+    let score = 45 + matched.length * 6;
+
+    if (score > 95) {
+        score = 95;
     }
 
-}
+
+    let transferable = "";
 
 
-/* POSSIBLE MISSING SKILLS */
-
-const futureSkills = [
-
-    "SQL",
-
-    "Python",
-
-    "Tableau",
-
-    "Power BI",
-
-    "Forecasting",
-
-    "Inventory Planning",
-
-    "Financial Modeling"
-
-];
-
-
-futureSkills.forEach(skill => {
-
-    if (!jd.includes(skill.toLowerCase())) {
-
-        missingSkills.push(skill);
-
+    if (jd.includes("strategy")) {
+        transferable =
+            "Strong fit for Strategy Operations positioning.";
     }
 
-});
+    else if (jd.includes("analyst")) {
+        transferable =
+            "Transferable profile for Business Analyst roles.";
+    }
+
+    else if (jd.includes("product")) {
+        transferable =
+            "Strong adjacent fit for Product Operations roles.";
+    }
+
+    else if (jd.includes("growth")) {
+        transferable =
+            "Relevant growth and merchant operations experience detected.";
+    }
+
+    else {
+        transferable =
+            "Broad operations experience provides strong transferable capability.";
+    }
 
 
-/* SCORE LIMIT */
 
-if (score > 95) {
-
-    score = 95;
-
-}
+    document.getElementById("matchScore").innerHTML =
+        "<h2>Match Score: " + score + "%</h2>";
 
 
-/* GENERATE RESULT */
-
-let resultHTML = `
-
-    <h3>Compatibility Score: ${score}%</h3>
-
-    <br>
-
-    <strong>Strong Matches</strong>
-
-    <ul>
-`;
+    document.getElementById("strengths").innerHTML =
+        "<br><strong>Strong Matches</strong><br>✓ " +
+        (matched.length ? matched.join("<br>✓ ") : "General operations capability");
 
 
-matchedSkills.forEach(skill => {
-
-    resultHTML += `<li>✓ ${skill}</li>`;
-
-});
+    document.getElementById("missingSkills").innerHTML =
+        "<br><strong>Missing / Strengthen Next</strong><br>✗ " +
+        (missing.length ? missing.join("<br>✗ ") : "No major gaps detected");
 
 
-resultHTML += `
-
-    </ul>
-
-    <br>
-
-    <strong>Potential Skill Gaps</strong>
-
-    <ul>
-`;
-
-
-missingSkills.slice(0,4).forEach(skill => {
-
-    resultHTML += `<li>△ ${skill}</li>`;
-
-});
-
-
-resultHTML += `
-
-    </ul>
-`;
-
-
-document.getElementById("result").style.display = "block";
-
-document.getElementById("result").innerHTML = resultHTML;
-```
+    document.getElementById("positioning").innerHTML =
+        "<br><strong>Suggested Positioning</strong><br>" +
+        transferable;
 
 }
