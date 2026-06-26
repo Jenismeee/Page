@@ -136,7 +136,15 @@ transition:0.3s ease;
 cursor:pointer;
 font-weight:500;
 }
+.skill-card h3{
+    font-size:28px;
+    margin-bottom:12px;
+}
 
+.skill-card p{
+    font-size:14px;
+    color:#aaaaaa;
+}
 .skill-card:hover{
 transform:translateY(-6px);
 border:1px solid #666;
