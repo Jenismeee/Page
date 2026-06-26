@@ -1,296 +1,244 @@
-/* ===========================
-   EXPERIENCE MAP INTERACTION
-=========================== */
+/* =========================
+   EMAIL COPY
+========================= */
 
-function showExperience(location){
+function copyEmail() {
 
-    const detail = document.getElementById("experienceDetail");
+    navigator.clipboard.writeText("Jennyfo1010@gmail.com");
 
-    const experiences = {
-
-        singapore: `
-        <h4>Singapore 🇸🇬</h4>
-        <br>
-        <strong>COMONE INT'L LOGISTICS PTE. LTD.</strong>
-        <br><br>
-
-        Role: Operations Executive
-        <br><br>
-
-        Duration: Jan 2025 – Present
-        <br><br>
-
-        Scope:
-        <br>
-        • Cross-border logistics execution
-        <br>
-        • Customs clearance coordination
-        <br>
-        • Shipment operations management
-        <br>
-        • Warehouse and transportation coordination
-        <br>
-        • KPI monitoring and operational reporting
-        `,
-
-
-
-        beijing: `
-        <h4>Beijing 🇨🇳</h4>
-        <br>
-
-        <strong>Kuaishou Technology</strong>
-        <br>
-        E-Commerce Operations Intern
-        <br>
-        Oct 2023 – Jan 2024
-        <br><br>
-
-        Scope:
-        <br>
-        • Double 11 campaign operations
-        <br>
-        • Merchant acquisition and reactivation
-        <br>
-        • Livestream KPI monitoring
-        <br>
-        • 29M+ daily GMV support
-        <br><br>
-
-        <strong>Mafengwo</strong>
-        <br>
-        Growth Marketing Intern
-        <br>
-        Apr 2023 – Jul 2023
-        <br><br>
-
-        Scope:
-        <br>
-        • Community operations (3300+ users)
-        <br>
-        • KOL collaboration
-        <br>
-        • Conversion optimization (+86%)
-        `,
-
-
-
-        haikou: `
-        <h4>Haikou 🇨🇳</h4>
-        <br>
-
-        <strong>Digital Hainan</strong>
-        <br>
-        Product Operations Intern
-        <br>
-        Jul 2023 – Aug 2023
-        <br><br>
-
-        Scope:
-        <br>
-        • Product prototype design
-        <br>
-        • PRD writing
-        <br>
-        • DAU monitoring
-        <br>
-        • SOP development
-        <br><br>
-
-        <strong>UniFuture Technology</strong>
-        <br>
-        Creator Partnership Intern
-        <br>
-        Jan 2023 – Feb 2023
-        <br><br>
-
-        Scope:
-        <br>
-        • Overseas creator acquisition
-        <br>
-        • 100+ creator onboarding
-        <br>
-        • TikTok / Instagram outreach
-        `
-
-    };
-
-    detail.innerHTML = experiences[location];
+    alert("Email copied: Jennyfo1010@gmail.com");
 
 }
 
 
 
-/* ===========================
-   AI JD MATCHER
-=========================== */
+/* =========================
+   JD MATCHER ENGINE
+========================= */
 
-function analyzeJD(){
+function analyzeJD() {
 
-    const jd = document.getElementById("jdInput").value.toLowerCase();
+    const input = document
+        .getElementById("jdInput")
+        .value
+        .toLowerCase();
 
-    const mySkills = [
-
-        "operations",
-        "business operations",
-        "cross-functional",
-        "stakeholder",
-        "analytics",
-        "kpi",
-        "growth",
-        "e-commerce",
-        "merchant",
-        "product",
-        "campaign",
-        "logistics",
-        "excel",
-        "ai",
-        "process improvement"
-
-    ];
-
-    const missingSkillsPool = [
-
-        "sql",
-        "python",
-        "tableau",
-        "automation",
-        "strategy",
-        "data analysis",
-        "power bi",
-        "product management"
-
-    ];
+    const resultBox =
+        document.getElementById("resultBox");
 
 
-    let matched = [];
+    let score = 35;
+
+    let strengths = [];
+
     let missing = [];
 
 
-    mySkills.forEach(skill=>{
 
-        if(jd.includes(skill)){
+    /* OPERATIONS */
 
-            matched.push(skill);
+    if (
+        input.includes("operations") ||
+        input.includes("execution") ||
+        input.includes("coordination")
+    ) {
 
-        }
+        score += 20;
 
-    });
+        strengths.push(
+            "Strong operations execution experience"
+        );
 
+    } else {
 
-    missingSkillsPool.forEach(skill=>{
-
-        if(jd.includes(skill)){
-
-            missing.push(skill);
-
-        }
-
-    });
+        missing.push(
+            "Direct operational execution requirements"
+        );
+    }
 
 
-    let score = 50 + matched.length * 5;
 
-    if(score > 95){
+    /* DATA */
+
+    if (
+
+        input.includes("excel") ||
+
+        input.includes("analytics") ||
+
+        input.includes("data") ||
+
+        input.includes("sql") ||
+
+        input.includes("kpi")
+
+    ) {
+
+        score += 15;
+
+        strengths.push(
+            "KPI monitoring and analytical thinking"
+        );
+
+    } else {
+
+        missing.push(
+            "Advanced data analytics background"
+        );
+    }
+
+
+
+    /* BUSINESS */
+
+    if (
+
+        input.includes("business") ||
+
+        input.includes("strategy") ||
+
+        input.includes("growth")
+
+    ) {
+
+        score += 15;
+
+        strengths.push(
+            "Business growth and strategy exposure"
+        );
+
+    } else {
+
+        missing.push(
+            "Business strategy experience"
+        );
+    }
+
+
+
+    /* CROSS FUNCTIONAL */
+
+    if (
+
+        input.includes("stakeholder") ||
+
+        input.includes("cross-functional") ||
+
+        input.includes("project management")
+
+    ) {
+
+        score += 10;
+
+        strengths.push(
+            "Cross-functional collaboration ability"
+        );
+
+    } else {
+
+        missing.push(
+            "Stakeholder/project management exposure"
+        );
+    }
+
+
+
+    /* AI */
+
+    if (
+
+        input.includes("ai") ||
+
+        input.includes("automation") ||
+
+        input.includes("technology")
+
+    ) {
+
+        score += 10;
+
+        strengths.push(
+            "Strong interest in AI workflow adoption"
+        );
+
+    }
+
+
+
+    if (score > 95) {
 
         score = 95;
-
-    }
-
-
-    let positioning = "";
-
-
-    if(jd.includes("strategy")){
-
-        positioning =
-        "Strong transferable fit for Strategy Operations positions.";
-
-    }
-
-    else if(jd.includes("product")){
-
-        positioning =
-        "Strong adjacent fit for Product Operations opportunities.";
-
-    }
-
-    else if(jd.includes("analyst")){
-
-        positioning =
-        "Transferable profile for Business Analyst roles.";
-
-    }
-
-    else if(jd.includes("growth")){
-
-        positioning =
-        "Highly aligned with Growth Operations opportunities.";
-
-    }
-
-    else{
-
-        positioning =
-        "Broad operational experience creates strong transferable capability.";
-
     }
 
 
 
-    document.getElementById("matchScore").innerHTML =
-        "<h2>Match Score: " + score + "%</h2>";
+    resultBox.innerHTML = `
 
+        <br>
 
+        <h3>Match Score: ${score}%</h3>
 
-    document.getElementById("strengths").innerHTML =
-        "<br><strong>Strong Matches</strong><br>✓ " +
-        (matched.length ? matched.join("<br>✓ ") : "General operational fit");
+        <br>
 
+        <strong>Strong Matches:</strong>
 
+        <br><br>
 
-    document.getElementById("missingSkills").innerHTML =
-        "<br><strong>Skills To Strengthen</strong><br>✗ " +
-        (missing.length ? missing.join("<br>✗ ") : "No major capability gaps detected");
+        ${strengths.map(item =>
+            "✓ " + item
+        ).join("<br>")}
 
+        <br><br>
 
+        <strong>Potential Gaps:</strong>
 
-    document.getElementById("positioning").innerHTML =
-        "<br><strong>Suggested Positioning</strong><br>" +
-        positioning;
+        <br><br>
+
+        ${missing.map(item =>
+            "• " + item
+        ).join("<br>")}
+
+    `;
 
 }
 
 
 
-/* ===========================
-   FADE-IN ANIMATION
-=========================== */
+/* =========================
+   SCROLL ANIMATION
+========================= */
 
-const observer = new IntersectionObserver((entries)=>{
+const observer = new IntersectionObserver(
 
-    entries.forEach((entry)=>{
+    entries => {
 
-        if(entry.isIntersecting){
+        entries.forEach(entry => {
 
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0px)";
+            if (entry.isIntersecting) {
 
-        }
+                entry.target.classList.add("show");
+            }
 
-    });
+        });
 
-});
+    },
+
+    {
+        threshold:0.15
+    }
+
+);
 
 
-const sections = document.querySelectorAll(".section");
 
-sections.forEach((section)=>{
+document.querySelectorAll(".section").forEach(
 
-    section.style.opacity = "0";
-    section.style.transform = "translateY(20px)";
-    section.style.transition = "all 0.8s ease";
+    section => {
 
-    observer.observe(section);
+        section.classList.add("hidden");
 
-});
+        observer.observe(section);
+
+    }
+
+);
